@@ -4,6 +4,7 @@ import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
+import { displayNotification, requestPermission } from '../lib/notifications';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -36,6 +37,10 @@ export default function Home({ allPostsData }) {
             </li>
           ))}
         </ul>
+      </section>
+      <section>
+        <button onClick={requestPermission}>Request Permission</button>
+        <button onClick={displayNotification}>Notify!!</button>
       </section>
 
     </Layout>
