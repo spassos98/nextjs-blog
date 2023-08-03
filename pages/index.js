@@ -1,10 +1,10 @@
-import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
-import { getSortedPostsData } from '../lib/posts';
-import Link from 'next/link';
-import Date from '../components/date';
-import { displayNotification, requestPermission } from '../lib/notifications';
+import Head from "next/head";
+import Layout, { siteTitle } from "../components/layout";
+import utilStyles from "../styles/utils.module.css";
+import { getSortedPostsData } from "../lib/posts";
+import Link from "next/link";
+import Date from "../components/date";
+import { displayNotification, requestPermission } from "../lib/notifications";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -22,7 +22,7 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>Hello! I like strawberries.</p>
+        <p>Hello! I like apples.</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
@@ -42,7 +42,6 @@ export default function Home({ allPostsData }) {
         <button onClick={requestPermission}>Request Permission</button>
         <button onClick={displayNotification}>Notify!!</button>
       </section>
-
     </Layout>
   );
 }
