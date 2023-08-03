@@ -5,6 +5,7 @@ import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
 import { displayNotification, requestPermission } from '../lib/notifications';
+import Script from 'next/script';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -16,10 +17,16 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }) {
+  console.log("ENVARS");
+  console.log(process.env);
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
+        <Script
+          src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
+          async=""
+        ></Script>
       </Head>
       <section className={utilStyles.headingMd}>
         <p>Hello! I like strawberries.</p>
